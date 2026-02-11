@@ -96,13 +96,14 @@ All analysis results are available in the `results/` directory:
 
 ### R Packages
 
-- DESeq2  
-- EnhancedVolcano  
-- pheatmap  
-- org.Hs.eg.db  
-- AnnotationDbi  
+- DESeq2 (differential expression analysis)
+- EnhancedVolcano (volcano plot visualization)
+- pheatmap (heatmap visualization)
+- org.Hs.eg.db (human gene annotation database)
+- AnnotationDbi (ID mapping utilities)
 
 Software versions are documented in the `environment/` directory.
+
 ---
 
 ## Reproducibility Note
