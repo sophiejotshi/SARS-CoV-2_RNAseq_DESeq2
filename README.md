@@ -1,38 +1,124 @@
-# RNA-seq Differential Expression Analysis (SARS-CoV-2)
+SARS-CoV-2 RNA-seq Differential Expression Analysis
+Overview
 
-## Overview
-This repository contains an RNA-seq data analysis workflow developed to compare host gene expression between SARS-CoV-2 infected and control samples using publicly available datasets.
+This project performs an end-to-end RNA-seq differential gene expression analysis to explore host transcriptional responses to SARS-CoV-2 infection using publicly available sequencing data.
 
-## Dataset
-- GEO accession: GSE147507
-- Raw RNA-seq FASTQ files were downloaded from NCBI GEO.
-- This project is intended for educational and research purposes only.
+Dataset used:
 
-## Project Structure
-raw_data/ # raw FASTQ files
-trimmed/ # quality-trimmed reads
-qc/ # quality control reports
-alignment/ # aligned reads
-counts/ # gene-level read count tables
-results/ # differential expression results and plots
+GSE147507 (NCBI GEO)
 
-## Analysis Workflow
-1. Quality control of raw reads
-2. Read trimming and preprocessing
-3. Read alignment to reference genome
-4. Gene-level read counting
-5. Differential expression analysis
-6. Visualization using volcano plots and heatmaps
+The workflow includes preprocessing of raw sequencing reads using command-line bioinformatics tools, followed by downstream statistical analysis and visualization in R.
 
-## Tools Used
-- FastQC
-- HISAT2
-- FeatureCounts
-- DESeq2 (R)
-- Python (data handling & visualization)
+Workflow Summary
 
-## Results
-The analysis generated gene-level differential expression tables along with visualization outputs (volcano plot and heatmap) to interpret expression changes between infected and control samples.
+The RNA-seq pipeline was executed using Windows command-line scripts for preprocessing and R for downstream statistical analysis.
 
-## Disclaimer
-This project does not represent clinical or diagnostic conclusions.
+1. Quality Control
+
+Raw FASTQ files were assessed using FastQC
+
+Evaluated:
+
+Per-base sequence quality
+
+Adapter contamination
+
+Sequence length distribution
+
+GC content
+
+2. Read Trimming
+
+Trimmomatic (Single-End mode) was used for:
+
+Adapter removal
+
+Quality filtering
+
+Removal of low-quality bases
+
+3. Alignment
+
+Cleaned reads were aligned to the human reference genome (GRCh38) using:
+
+HISAT2
+
+Output: Sorted BAM files
+
+4. Gene-level Quantification
+
+featureCounts was used to:
+
+Assign aligned reads to genomic features
+
+Generate gene-level count matrix
+
+5. Differential Expression Analysis
+
+Conducted in R using:
+
+DESeq2
+
+Statistical testing:
+
+Wald test
+
+Adjusted p-value (Benjamini–Hochberg correction)
+
+Filtering criteria:
+
+padj < 0.05
+
+|log2FoldChange| > 1
+
+6. Visualization
+
+Volcano Plot
+
+Generated using EnhancedVolcano
+
+Heatmap
+
+Top 20 differentially expressed genes
+
+Generated using pheatmap
+
+Variance-stabilizing transformation (VST) applied
+
+Key Outputs
+
+All analysis results are available in the results/ directory:
+
+Full DESeq2 results table
+
+Filtered significant gene list
+(padj < 0.05 and |log2FC| > 1)
+
+Volcano plot image
+
+Heatmap of top 20 differentially expressed genes
+
+Tools & Software
+Command-Line Tools
+
+FastQC
+
+Trimmomatic
+
+HISAT2
+
+featureCounts
+
+R Packages
+
+DESeq2
+
+EnhancedVolcano
+
+pheatmap
+
+org.Hs.eg.db
+
+AnnotationDbi
+
+Software versions are documented in the environment/ directory.
