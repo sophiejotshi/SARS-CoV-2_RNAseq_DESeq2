@@ -1,14 +1,25 @@
+# Raw & Intermediate Data 
 raw_data/
 trimmed/
 alignment/
 qc/
+counts/
 
+# Large sequencing files 
 *.fastq
 *.fastq.gz
+*.fq
+*.fq.gz
 *.bam
 *.bai
 *.sam
-*.zip
+
+# QC Reports
 *.html
+*.zip
+
+# Logs 
 *.log
-*.Rhistory
+
+
+
