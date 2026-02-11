@@ -1,0 +1,14 @@
+raw_data/
+trimmed/
+alignment/
+qc/
+
+*.fastq
+*.fastq.gz
+*.bam
+*.bai
+*.sam
+*.zip
+*.html
+*.log
+*.Rhistory

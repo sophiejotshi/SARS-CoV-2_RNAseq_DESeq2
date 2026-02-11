@@ -1,0 +1,19 @@
+RNA-seq Workflow Summary (Windows Command-Line Execution)
+
+1. Quality Control
+   Raw FASTQ files were assessed using FastQC to evaluate sequencing quality and adapter contamination.
+
+2. Read Trimming
+   Trimmomatic (single-end mode) was used for adapter removal and quality filtering using sliding window and minimum length parameters.
+
+3. Alignment
+   Quality-filtered reads were aligned to the human reference genome (GRCh38) using HISAT2.
+
+4. Gene-level Quantification
+   featureCounts was used to generate gene-level read count matrices from aligned reads.
+
+5. Differential Expression Analysis
+   DESeq2 (R) was used to identify significantly differentially expressed genes between infected and control samples.
+
+6. Visualization
+   Volcano plots and heatmaps were generated to interpret expression patterns.
